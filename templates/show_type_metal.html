@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block content %}
+<table>
+    <tr>
+        <th>Nazwa</th>
+    </tr>
+    {% for metal in metals %}
+    <tr>
+        <td><a href="/show_metal/{{ metal.id }}">{{ metal.name }}</a></td>
+{#        <td>#}
+{#            <ul>#}
+{#        {% for type in coin.type.all %}#}
+{#        <li>{{ type.name }}</li>#}
+{#        {% endfor %}#}
+{#            </ul>#}
+{#        </td>#}
+{#    <td>{{ coin.value }}</td>#}
+{#    <td>{{ coin.category }}</td>    #}
+{#    </tr>#}
+        {% endfor %}
+
+    </table>
+    
+    
+    
+
+{% endblock %}

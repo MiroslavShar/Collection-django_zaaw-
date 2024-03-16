@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% block content %}
+    <ul>
+    {% for message in messages %}
+    <li>{{ message|safe }}</li>
+    </ul>
+    {% endfor %}
+    <form>
+    {{ form.as_p }}
+    <input type="submit">
+    </form>
+    <table>
+    <tr>
+        <th>Nazwa</th><th>Typy</th><th>Nominal</th><th>Kategoria</th>
+        {% if user.is_authenticated %}
+        <th>dodaj</th>
+        {% endif %}
+    </tr>
+    {% for coin in db_coins %}
+    <tr>
+        <td><a href="/show_coins/{{ coin.id }}">{{ coin.name }}</a></td>
+        <td>
+            <ul>
+        {% for type in coin.type.all %}
+        <li>{{ type.name }}</li>
+        {% endfor %}
+            </ul>
+        </td>
+    <td>{{ coin.value }}</td>
+    <td>{{ coin.category }}</td>  
+    {% if user.is_authenticated %}
+        <td><a href="{% url 'add_coin_to_collection' coin.id %}">dodaj</a></td>
+    {% endif %}
+    </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}
