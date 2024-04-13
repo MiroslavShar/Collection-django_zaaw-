@@ -10,6 +10,7 @@ class Category(models.Model):
     name = models.CharField(max_length=64)
     parent = models.ForeignKey('Category', on_delete=models.CASCADE,
                                null=True)
+
     def __str__(self):
         return self.name
 

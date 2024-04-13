@@ -18,7 +18,7 @@ class CoinModelForm(forms.ModelForm):
         model = Coin
         fields = '__all__'
         widgets = {
-            'type' : forms.CheckboxSelectMultiple(attrs={'class': 'jajkon'})
+            'type' : forms.CheckboxSelectMultiple
         }
 
 class MetalModelForm(forms.ModelForm):

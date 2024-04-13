@@ -149,13 +149,13 @@ import pytest
 #     assert response.status_code == 200
 #     assert response.context['db_coins'].count() == len(coins)
 #
-# @pytest.mark.django_db
-# def test_show_metals(metals):
-#     client = Client()
-#     url = reverse('show_metal')
-#     response = client.get(url)
-#     assert response.status_code == 200
-#     assert response.context['metals'].count() == len(metals)
+@pytest.mark.django_db
+def test_show_metals(metals):
+    client = Client()
+    url = reverse('show_metal')
+    response = client.get(url)
+    assert response.status_code == 200
+    assert response.context['metals'].count() == len(metals)
 
 @pytest.mark.django_db
 def test_show_my_collection(collection):
